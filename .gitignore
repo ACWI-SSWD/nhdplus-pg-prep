@@ -1,0 +1,6 @@
+.DS_Store
+venv
+*.gdb
+*.pdf
+*.7z
+dumps
