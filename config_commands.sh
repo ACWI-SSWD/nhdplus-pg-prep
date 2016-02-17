@@ -16,6 +16,14 @@ if [ -n "$check" ]; then
     exit
 fi
 
+if [ -e NHDPlusV21_National_Flattened.gdb ]; then
+    echo "Found NHDPlusV21_National_Flattened.gdb inserting data from it now."
+else
+    echo "Need extracted geo database of 7z archive attempting to download with wget. If this fails see the readme for more info."
+    wget -c ftp://ftpext.usgs.gov/pub/er/wi/middleton/dblodgett/NHDPlus/NHDPlusV21_National_Flattened.gdb.7z
+    7z x NHDPlusV21_National_Flattened.gdb.7z
+fi
+
 # Create new database role for tables
 psql -c "CREATE ROLE $owner LOGIN PASSWORD '$ownerpass' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;" postgresql://$username:$password@$host:5432/
 
