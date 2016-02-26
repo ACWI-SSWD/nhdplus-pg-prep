@@ -38,4 +38,10 @@ pg_dump -t catchmentsp postgresql://$username:$password@$host/$db -O --file="dum
 
 pg_dump -t catchment postgresql://$username:$password@$host/$db -O --file="dumps/catchment.pgdump"
 
-for $file in dumps/*.pgdump; do gzip $file; done;
+pg_dump -t nhdwaterbody postgresql://$username:$password@$host/$db -O --file="dumps/nhdwaterbody.pgdump"
+
+pg_dump -t nhdpoint postgresql://$username:$password@$host/$db -O --file="dumps/nhdpoint.pgdump"
+
+pg_dump -t nhdline postgresql://$username:$password@$host/$db -O --file="dumps/nhdline.pgdump"
+
+for file in dumps/*.pgdump; do gzip $file; done;
