@@ -56,18 +56,6 @@ ogr2ogr -overwrite -progress -f "PostGreSQL" PG:"host=$host user=$owner password
 echo Index nhdarea
 psql -c "CREATE INDEX ON nhdarea (COMID); CREATE INDEX ON nhdarea (FDATE); CREATE INDEX ON nhdarea (RESOLUTION); CREATE INDEX ON nhdarea (GNIS_ID); CREATE INDEX ON nhdarea (GNIS_NAME); CREATE INDEX ON nhdarea (AREASQKM); CREATE INDEX ON nhdarea (ELEVATION); CREATE INDEX ON nhdarea (FTYPE); CREATE INDEX ON nhdarea (FCODE); CREATE INDEX ON nhdarea (ONOFFNET); CREATE INDEX ON nhdarea (PurpCode); CREATE INDEX ON nhdarea (PurpDesc);" postgresql://$owner:$ownerpass@$host:5432/$db
 
-# echo Insert NHDPoint as nhdpoint
-# ogr2ogr -overwrite -progress -f "PostGreSQL" PG:"host=$host user=$owner password=$ownerpass dbname=$db" -nln "nhdpoint" -nlt PROMOTE_TO_MULTI -lco "GEOMETRY_NAME=the_geom" -lco "PRECISION=NO" -a_srs "EPSG:4269"   NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb NHDPoint
-#
-# echo Index nhdpoint
-# psql -c "CREATE INDEX ON nhdpoint (COMID); CREATE INDEX ON nhdpoint (FDATE); CREATE INDEX ON nhdpoint (RESOLUTION); CREATE INDEX ON nhdpoint (GNIS_ID); CREATE INDEX ON nhdpoint (GNIS_NAME); CREATE INDEX ON nhdpoint (REACHCODE); CREATE INDEX ON nhdpoint (FTYPE); CREATE INDEX ON nhdpoint (FCODE);" postgresql://$owner:$ownerpass@$host:5432/$db
-#
-# echo Insert NHDLine as nhdline
-# ogr2ogr -overwrite -progress -f "PostGreSQL" PG:"host=$host user=$owner password=$ownerpass dbname=$db" -nln "nhdline" -nlt PROMOTE_TO_MULTI -lco "GEOMETRY_NAME=the_geom" -lco "PRECISION=NO" -a_srs "EPSG:4269"   NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb NHDLine
-#
-# echo Index nhdline
-# psql -c "CREATE INDEX ON nhdline (COMID); CREATE INDEX ON nhdline (FDATE); CREATE INDEX ON nhdline (RESOLUTION); CREATE INDEX ON nhdline (GNIS_ID); CREATE INDEX ON nhdline (GNIS_NAME); CREATE INDEX ON nhdline (LENGTHKM); CREATE INDEX ON nhdline (FTYPE); CREATE INDEX ON nhdline (FCODE);" postgresql://$owner:$ownerpass@$host:5432/$db
-
 echo Insert NHDFlowline_Network as nhdflowline_network
 ogr2ogr -overwrite -progress -f "PostGreSQL" PG:"host=$host user=$owner password=$ownerpass dbname=$db" -nln "nhdflowline_network" -nlt PROMOTE_TO_MULTI -lco "GEOMETRY_NAME=the_geom" -lco "PRECISION=NO" -a_srs "EPSG:4269"   NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb NHDFlowline_Network
 
