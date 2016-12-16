@@ -7,7 +7,7 @@ The config_commands.sh bash script uses ogr2ogr, a [gdal](http://www.gdal.org/) 
 
 If you don't want all the tables to be loaded, open the script and comment out unwanted content. The script takes an admin user name and password, a host for postgres, a database name to create, the non-admin owner to associate with the new database and its password.  
 like:  
-`bash config_commands.sh postgres password localhost nhdplus nhdplus password NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb`
+`bash config_commands.sh postgres password localhost nhdplus nhdplus password`
 
 The script tries to create the non-admin user, create the database, and add the postgis extension. It then loads tables and creates indexes overwriting any tables that alread exist in the target database.
 

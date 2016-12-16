@@ -4,17 +4,21 @@ host=$3
 db=$4
 owner=$5
 ownerpass=$6
-gdb_7z=$7
-check=$8
+check=$7
 
-if [ -z "$db" ]; then
-     echo "You must pass in seven variables, admin username, password, host, database name, database owner, database owner password, and a 7z file."
+if [ -z "$ownerpass" ]; then
+     echo "You must pass in seven variables, admin username, password, host, database name, database owner, and a database owner password."
      exit
 fi
 
 if [ -n "$check" ]; then
-    echo "You must pass in seven variables, admin username, password, host, database name, database owner, database owner password, and a 7z file."
+    echo "You must pass in seven variables, admin username, password, host, database name, database owner, and a database owner password."
     exit
+fi
+if [-e NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb ]; then
+  echo "Found NHDPlusV21_National_Seamless.gdb geo database"
+else
+  echo "Didn't find NHDPlusV21_National_Seamless.gdb in NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb. Download it from: http://www.horizon-systems.com/NHDPlus/V2NationalData.php and extract to the current working directory."
 fi
 
 echo Create new database role for tables
