@@ -7,12 +7,12 @@ ownerpass=$6
 check=$7
 
 if [ -z "$ownerpass" ]; then
-     echo "You must pass in seven variables, admin username, password, host, database name, database owner, and a database owner password."
+     echo "You must pass in six variables, admin username, password, host, database name, database owner, and a database owner password."
      exit
 fi
 
 if [ -n "$check" ]; then
-    echo "You must pass in seven variables, admin username, password, host, database name, database owner, and a database owner password."
+    echo "You must pass in six variables, admin username, password, host, database name, database owner, and a database owner password."
     exit
 fi
 if [-e NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb ]; then
