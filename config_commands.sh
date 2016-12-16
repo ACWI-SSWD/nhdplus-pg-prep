@@ -24,13 +24,13 @@ fi
 echo Create new database role for tables
 psql -c "CREATE ROLE $owner LOGIN PASSWORD '$ownerpass' NOSUPERUSER INHERIT NOCREATEDB NOCREATEROLE NOREPLICATION;" postgresql://$username:$password@$host:5432/
 
-echo Create database nwcGeoserver
+echo Create database 
 psql -c "CREATE DATABASE \"$db\" WITH OWNER = \"$owner\";" postgresql://$username:$password@$host:5432/
 
 echo Add postgis extensions
 psql -c "CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology;" postgresql://$username:$password@$host:5432/$db
 
-echoInsert Gages into Database as gage.
+echo Insert Gages into Database as gage.
 ogr2ogr -overwrite -progress -f "PostGreSQL" PG:"host=$host user=$owner password=$ownerpass dbname=$db" -nln "gage" -nlt PROMOTE_TO_MULTI -lco "GEOMETRY_NAME=the_geom" -lco "PRECISION=NO" -a_srs "EPSG:4269"   NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb Gage
 
 echo Index Gages.

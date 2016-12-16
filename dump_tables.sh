@@ -24,10 +24,6 @@ pg_dump -t nhdwaterbody postgresql://$username:$password@$host/$db -O --file="du
 
 pg_dump -t nhdarea postgresql://$username:$password@$host/$db -O --file="dumps/nhdarea.pgdump"
 
-pg_dump -t nhdpoint postgresql://$username:$password@$host/$db -O --file="dumps/nhdpoint.pgdump"
-
-pg_dump -t nhdline postgresql://$username:$password@$host/$db -O --file="dumps/nhdline.pgdump"
-
 pg_dump -t nhdflowline_network postgresql://$username:$password@$host/$db -O --file="dumps/nhdflowline_network.pgdump"
 
 pg_dump -t nhdflowline_nonnetwork postgresql://$username:$password@$host/$db -O --file="dumps/nhdflowline_nonnetwork.pgdump"
