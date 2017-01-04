@@ -18,7 +18,7 @@ fi
 if [-e NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb ]; then
   echo "Found NHDPlusV21_National_Seamless.gdb geo database"
 else
-  echo "Didn't find NHDPlusV21_National_Seamless.gdb in NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb. Download it from: http://www.horizon-systems.com/NHDPlus/V2NationalData.php and extract to the current working directory."
+  echo "Didn't find NHDPlusV21_National_Seamless.gdb in NHDPlusNationalData/NHDPlusV21_National_Seamless.gdb. Download the National Seamless Geodatabase from: https://www.epa.gov/waterdata/nhdplus-national-data and extract to the current working directory."
 fi
 
 echo Create new database role for tables
