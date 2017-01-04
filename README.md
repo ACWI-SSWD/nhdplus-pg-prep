@@ -1,7 +1,7 @@
 # NHDPlusV21 PostGIS Loader and Geoserver Configuration
 
 ## GeoDatabase to PostGIS
-These scripts can be used to load the NHDPlusV21 National Flattened Geodatabase into a Postgres database. A 7z version of the data is available here: http://www.horizon-systems.com/NHDPlus/V2NationalData.php along with the pdf documentation of the database.
+These scripts can be used to load the NHDPlusV21 National Seamless Geodatabase into a Postgres database. A 7z version of the data is available here: https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus along with the pdf documentation of the database. The data can be downloaded directly from: https://s3.amazonaws.com/nhdplus/NHDPlusV21/Data/NationalData/NHDPlusV21_NationalData_National_Seamless_Geodatabase_03.7z
 
 The config_commands.sh bash script uses ogr2ogr, a [gdal](http://www.gdal.org/) command, to transform vector geospatial data, and psql to insert data into a postgres database and index pertinant columns.  
 
